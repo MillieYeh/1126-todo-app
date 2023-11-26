@@ -1,4 +1,5 @@
 import React from "react";
+import TodoItems from "./TodoItems";
 
 const TodoList = () => {
   return (
@@ -21,6 +22,7 @@ const TodoList = () => {
         </div>
       </div>
       <ul>
+        <TodoItems />
         <div className="row mt-4 flex">
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">
             <button
