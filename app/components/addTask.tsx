@@ -10,8 +10,14 @@ const AddTask = () => {
   const [id, setId] = useState(uuidv4());
   const [editItem, setEditItem] = useState(false);
 
-  const handleSubmit = (event: { preventDefault: () => void }) => {
-    event.preventDefault();
+  const handleChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setItem(e.target.value);
+  };
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
 
     const newItem = {
       id,
@@ -29,7 +35,13 @@ const AddTask = () => {
   return (
     <div className="card card-body my-3">
       <form onSubmit={handleSubmit}>
-        <input type="text" className="form-control" placeholder="New Todo" />
+        <input
+          type="text"
+          className="form-control"
+          placeholder="New Todo"
+          value={item}
+          onChange={handleChange}
+        />
         <button type="submit" className="btn btn-light mt-3">
           Add new Task
         </button>
