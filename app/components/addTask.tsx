@@ -42,8 +42,13 @@ const AddTask = () => {
           value={item}
           onChange={handleChange}
         />
-        <button type="submit" className="btn btn-light mt-3">
-          Add new Task
+        <button
+          type="submit"
+          className={`btn btn-light mt-3 ${
+            editItem ? "btn-success" : "btn-info"
+          }`}
+        >
+          {editItem ? "Edit task" : "Add New Task"}
         </button>
       </form>
     </div>
